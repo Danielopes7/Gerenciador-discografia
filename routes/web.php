@@ -19,4 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('album', 'AlbumController');
+
+
+Route::fallback(function() {
+    echo 'A rota acessada não existe. <a href="'.route('album.index').'">clique aqui</a> para ir para página inicial';
+});
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
