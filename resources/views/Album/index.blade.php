@@ -42,8 +42,8 @@
                     <strong class="text-dark">Duração</strong>
                 </p>
             </div>
-            <div class="col-2">
-                <p class="media-body pb-3 mb-0 medium lh-125 ">
+                        <div class="col-2">
+                <p class="media-body pb-3 mb-0 medium lh-125">
                     <strong class="text-gray">Nº</strong>
                 </p>
             </div>
@@ -57,26 +57,17 @@
                     <strong class="text-gray">Duração</strong>
                 </p>
             </div>
+            
         </div>
   
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
-    .index{
-        background-color:rgba(255, 255, 255, 0.5);
-    }
     .text-dark{
         color: #000!important;
-    }
-    .content-wrapper {
-        background-image: url('/imagens/background.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-
     }
     </style>
 @stop
