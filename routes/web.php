@@ -20,6 +20,8 @@ Route::get('/', function () {
 // Auth::routes();
 
 Route::resource('album', 'AlbumController');
+Route::resource('track', 'TrackController');
+
 
 
 Route::fallback(function() {
