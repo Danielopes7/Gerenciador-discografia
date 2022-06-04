@@ -24,7 +24,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('album.create');
     }
 
     /**
@@ -35,7 +35,19 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = [
+            'nome' => 'required|max:150',
+        ];
+
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'nome.max' => 'O campo nome deve ter no máximo 150 caracteres',
+        ];
+        $request->validate($regras, $feedback);
+        $album = new Album();
+        $album->create($request->all());
+
+        return redirect()->route('album.index');
     }
 
     /**
