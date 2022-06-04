@@ -1,0 +1,12 @@
+.index{
+    height: 70vh;
+    background-color:rgba(255, 255, 255, 0.5);
+}
+.content-wrapper {
+background-image: url('/imagens/background.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+
+}
