@@ -11,7 +11,7 @@
 <div class="d-flex align-items-center p-3 text-dark-50 bg-white rounded shadow-sm justify-content-between">
     <img class="mr-3" src="/imagens/logo.png" alt="" >
     <div class="lh-100 ">
-        <h2 class="mb-0 text-dark lh-100">Adicionar Albúm</h2>
+        <h2 class="mb-0 text-dark lh-100">Adicionar Novo Albúm</h2>
     </div>
 </div>
 
@@ -25,10 +25,11 @@
                 <div class="form-group">
                     <label for="albumInput">Albúm</label>
                     <input type="text" name="nome" class="form-control" id="albumInput" placeholder="Nome do Albúm">
+                    {{ $errors->has('nome') ? $errors->first('nome') : '' }} 
                 </div>
             </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark">Cadastrar Albúm</button>
                 </div>
         </form>
     </div>
