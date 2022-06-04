@@ -24,39 +24,42 @@
                 <i class="fas fa-search"> Procurar</i>
             </button>
         </div>
- 
-        <h4 class="order-bottom border-gray pb-2 mt-4 mb-0"><strong>Album: Rei do gado</strong></h4>
-        <div class="row media pt-3">
-            <div class="col-2">
-                <p class="media-body pb-3 mb-0 medium lh-125">
-                    <strong class="text-dark">Nº</strong>
-                </p>
-            </div>
-            <div class="col-8">
-                <p class="media-body pb-3 mb-0 medium lh-125 ">
-                    <strong class="text-dark">Faixa</strong>
-                </p>
-            </div>
-            <div class="col-2">
-                <p class="media-body pb-3 mb-0 medium lh-125 ">
-                    <strong class="text-dark">Duração</strong>
-                </p>
-            </div>
-                        <div class="col-2">
-                <p class="media-body pb-3 mb-0 medium lh-125">
-                    <strong class="text-gray">Nº</strong>
-                </p>
-            </div>
-            <div class="col-8">
-                <p class="media-body pb-3 mb-0 medium lh-125 ">
-                    <strong class="text-gray">Faixa</strong>
-                </p>
-            </div>
-            <div class="col-2">
-                <p class="media-body pb-3 mb-0 medium lh-125 ">
-                    <strong class="text-gray">Duração</strong>
-                </p>
-            </div>
+        
+        {{-- Verifico se a tabela ta vazia, caso esteja mostro um h4 avisando --}}
+        @if ( $albuns->isEmpty() )
+            <h4 class= "mt-3 text-center">Nenhum Albúm cadastrado...</h4>
+        @endif
+
+        @foreach ($albuns as $album)
+            <h4 class="border-gray mt-4 mb-0"><strong>{{ $album->nome }}</strong></h4>
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                    <th scope="col-3" width="10%">Nº</th>
+                    <th scope="col-1" width="70%">Faixa</th>
+                    <th scope="col-1" width="10%">Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    </tr>
+                </tbody>
+            </table>
+        @endforeach
+
             
         </div>
   
