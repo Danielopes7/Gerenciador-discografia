@@ -15,7 +15,12 @@ class CreateTracksTable extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nome', 100);
+            $table->time('duracao');
+            
+            //foreign key constraints
+            $table->foreignId('album_id')->constrained('albums');
+
         });
     }
 
