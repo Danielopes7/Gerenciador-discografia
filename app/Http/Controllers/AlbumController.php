@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class AlbumController extends Controller
 {
@@ -12,9 +14,21 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $albuns = Album::all();
+        if (isset($request->busca))
+        {
+            $busca = $request->busca;
+            $albuns = Album::where('nome', 'like', '%'.$busca.'%')->get();
+            // dd($albuns = Album::with(['tracks'])->where('nome', 'like', '%'.$busca.'%')->get());
+            // $albuns = Album::whereHas('tracks', function (Builder $query) {
+            //     $query->where('tracks', 'like', '%'.$busca.'%');
+            // })->get();
+        }
+        else
+        {
+            $albuns = Album::all();
+        }
         return view('album.index', ['albuns' => $albuns]);
     }
 

@@ -15,29 +15,32 @@
     </div>
 
     <div class="index my-1 p-3 rounded shadow-sm">
-        <label class="form-label text-gray" for="form1">Digite uma palavra chave</label>        
-        <div class="input-group">
-            <div class="form-outline" style="min-width: 89%"  style="display: flex">
-                <input type="search" id="form1" class="form-control bg-white"/>
+        <form action=" {{ route('album.index') }}" method="get">
+        @csrf
+            <label class="form-label text-gray" for="form1">Digite uma palavra chave</label>        
+            <div class="input-group">
+                <div class="form-outline" style="min-width: 89%"  style="display: flex">
+                    <input type="search" name="busca" id="form1" class="form-control bg-white"/>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"> Procurar</i>
+                </button>
             </div>
-            <button type="button" class="btn btn-primary">
-                <i class="fas fa-search"> Procurar</i>
-            </button>
-        </div>
+        </form>
         
         {{-- Verifico se a tabela ta vazia, caso esteja mostro um h4 avisando --}}
-        @if ( $albuns->isEmpty() )
+        {{-- @if ( $albuns->isEmpty() )
             <h4 class= "mt-3 text-center">Nenhum Albúm cadastrado...</h4>
-        @endif
+        @endif --}}
 
         @foreach ($albuns as $album)
-            <h4 class="border-gray mt-4 mb-0">
+            <h4 class="border-gray mt-4 mb-0" style="display: inline-flex;">
                 <strong>{{ $album->nome }}
-                    <a href="{{ route('album.show', ['album' => $album->id])}}">
-                        <i class="fas fa-pen"></i>
-                    </a>
                 </strong>
             </h4>
+            <a href="{{ route('album.show', ['album' => $album->id])}}" class="text-dark">
+                <i class="fas fa-pen"></i>
+            </a>
             <table class="table table-borderless">
                 <thead>
                     <tr>
