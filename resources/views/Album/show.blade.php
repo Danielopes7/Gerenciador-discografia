@@ -10,8 +10,15 @@
 
 <div class="d-flex align-items-center p-3 text-dark-50 bg-white rounded shadow-sm justify-content-between">
     <img class="mr-3" src="/imagens/logo.png" alt="" >
-    <div class="lh-100 ">
+    <div class="lh-100 d-inline-flex">
         <h2 class="mb-0 text-dark lh-100">{{ $album->nome }}</h2>
+            <form id="form2_{{$album->id}}" method="post" action="{{ route('album.destroy', ['album' => $album->id]) }}">
+            @csrf
+            @method('DELETE')
+                <button href="#" class="btn btn-danger ml-2" onclick="document.getElementById('form2_{{$album->id}}').submit()">
+                    <i class="fas fa-trash"></i>
+                </button>            
+            </form>
     </div>
 </div>
 
@@ -43,7 +50,16 @@
                     <td>{{ $track->numero}}</td>
                     <td>{{ $track->nome}}</td>
                     <td>{{ $track->duracao}}</td>
-                    <td></td>
+                    <td>
+                        <form id="form_{{$track->id}}" method="post" action="{{ route('track.destroy', ['track' => $track->id]) }}">
+                        @csrf
+                        @method('DELETE')  
+                        {{-- <button type="submit"> Excluir</button> --}}
+                            <a href="#" onclick="document.getElementById('form_{{$track->id}}').submit()">
+                                <i class="fas fa-trash"></i>
+                            </a>            
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
