@@ -19,7 +19,7 @@
     <div class="card card-dark col-md-6 container-fluid p-0">
         <div class="card-header">
         </div>
-        <form method="post" action="{{ route('album.store')}}">
+        <form method="post" action="{{ route('album.store')}}" onsubmit="this.cadastrar.value='Enviando...'; this.cadastrar.disabled=true;">
         @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -29,7 +29,7 @@
                 </div>
             </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-dark">Cadastrar Albúm</button>
+                    <button type="submit" name="cadastrar"class="btn btn-dark">Cadastrar Albúm</button>
                 </div>
         </form>
     </div>
