@@ -31,31 +31,29 @@
         @endif
 
         @foreach ($albuns as $album)
-            <h4 class="border-gray mt-4 mb-0"><strong>{{ $album->nome }}</strong></h4>
+            <h4 class="border-gray mt-4 mb-0">
+                <strong>{{ $album->nome }}
+                    <a href="{{ route('album.show', ['album' => $album->id])}}">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                </strong>
+            </h4>
             <table class="table table-borderless">
                 <thead>
                     <tr>
                     <th scope="col-3" width="10%">Nº</th>
                     <th scope="col-1" width="70%">Faixa</th>
-                    <th scope="col-1" width="10%">Last</th>
+                    <th scope="col-1" width="10%">Duração</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    </tr>
+                    @foreach ($album->tracks as $track)
+                        <tr>
+                        <td>{{ $track->numero }}</td>
+                        <td>{{ $track->nome }}</td>
+                        <td>{{ $track->duracao }}</td>
+                        </tr>                  
+                    @endforeach
                 </tbody>
             </table>
         @endforeach
