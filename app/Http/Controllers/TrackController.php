@@ -24,7 +24,7 @@ class TrackController extends Controller
      */
     public function create()
     {
-        //
+        return view('track.create');
     }
 
     /**
@@ -35,7 +35,21 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $regras = [
+            'nome' => 'required|max:150',
+            'numero' => 'required|integer|max:3',
+            'duracao' => 'required',
+        ];
+
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'numero.max' => 'O campo nome deve ter no máximo 3 caracteres',
+        ];
+        $request->validate($regras, $feedback);
+        $track = new Track();
+        $track->create($request->all());
+        return redirect('/album'.'/'.$request->album_id);
     }
 
     /**
