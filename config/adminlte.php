@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'album',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -233,16 +233,16 @@ return [
 
         // Sidebar items:
 
-        ['header' => 'account_settings'],
+        ['header' => 'Gerenciador'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Lista de Albúns',
+            'url'  => '/album',
+            'icon' => 'fas fa-fw fa-music',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Adicionar Albúns',
+            'url'  => '/album/create',
+            'icon' => 'fas fa-fw fa-plus',
         ],
         
     ],
