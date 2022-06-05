@@ -16,10 +16,18 @@
 </div>
 
 <div class="index my-1 p-3 rounded shadow-sm">
+    {{-- validação do modal --}}
+    @if( !$errors->isEmpty())
+        <div class="alert alert-danger text-center" role="alert">
+            {{ $errors->has('nome') ? $errors->first('nome').'!' : '' }}
+            {{ $errors->has('numero') ? $errors->first('numero').'!' : '' }}
+            {{ $errors->has('duracao') ? $errors->first('duracao').'!' : '' }}
+        </div>
+    @endif
     <div class="card card-dark col-md-6 container-fluid p-0">
         <div class="card-header">
             Albúm: {{ $album->nome }}
-        <button type="button" class="btn btn-sm btn-light float-right">+ Adicionar nova faixa</button>
+        <a class="criar btn btn-sm btn-light float-right text-dark" role="button" data-toggle="modal" data-toggle="ModalShow">+ Adicionar nova faixa</a>
         </div>
     <table class="table">
         <thead>
@@ -30,12 +38,14 @@
         </thead>
     @if ( !$album->tracks->isEmpty() )
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Otto</td>
-            </tr>
+            @foreach ( $album->tracks as $track)
+                <tr>
+                    <td>{{ $track->numero}}</td>
+                    <td>{{ $track->nome}}</td>
+                    <td>{{ $track->duracao}}</td>
+                    <td></td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     @else
@@ -44,7 +54,8 @@
     @endif
     </div>
 </div>
-  
+
+@include('track.create')
 @stop
 
 @section('css')
@@ -53,5 +64,48 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        $(function() {
+        $('.criar').on('click', function(){
+            $('#ModalShow').modal("show");
+            //var id = $(this).data('id'); 
+            $.ajax({
+                type:'post',
+                url: "{{ route('track.store') }}",
+                data: {
+                    'id' : id,
+                    '_token': $('input[name=_token]').val()                  
+                },
+                dataType: 'json',
+                success:function(data){
+                    
+                }
+                }); 
+            });
+        });
+        $("#aceite").on("click", function() {
+            $("#form-login").submit(); //Se for clicado no botão aceite é submetido o formulário
+            });
+        $("#form-login").validate({
+
+        rules: {
+            "email": {
+            required: true,
+            email: true
+            },
+            "senha": {
+            required: true
+            }
+        },
+        messages: {
+            "email": {
+            required: 'Campo e-mail é obrigatório',
+            email: 'E-mail inválido'
+            },
+            "senha": {
+            required: 'Campo senha é obrigatório'
+            }
+        }
+        });
+    </script>
 @stop
