@@ -15,24 +15,24 @@
     </div>
 
     <div class="index my-1 p-3 rounded shadow-sm">
+        <button class="btn btn-dark btn-sm">
+            <a href="{{ route('album.create')}}" class="text-light">
+                Adicionar Albúm
+                <i class="fas fa-music"></i>
+            </a>
+        </button>
         <form action=" {{ route('album.index') }}" method="get">
         @csrf
-            <label class="form-label text-gray" for="form1">Digite uma palavra chave</label>        
+            <label class="form-label text-gray mt-2" for="form1">Digite uma palavra chave</label>        
             <div class="input-group">
                 <div class="form-outline" style="min-width: 89%"  style="display: flex">
                     <input type="search" name="busca" id="form1" class="form-control bg-white"/>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-search"> Procurar</i>
+                <button type="submit" class="btn btn-dark">
+                    <i class="fas fa-search"></i> Procurar
                 </button>
             </div>
         </form>
-        
-        {{-- Verifico se a tabela ta vazia, caso esteja mostro um h4 avisando --}}
-        {{-- @if ( $albuns->isEmpty() )
-            <h4 class= "mt-3 text-center">Nenhum Albúm cadastrado...</h4>
-        @endif --}}
-
         @foreach ($albuns as $album)
             <h4 class="border-gray mt-4 mb-0" style="display: inline-flex;">
                 <strong>{{ $album->nome }}
@@ -59,11 +59,8 @@
                     @endforeach
                 </tbody>
             </table>
-        @endforeach
-
-            
+        @endforeach    
         </div>
-  
 @stop
 
 @section('css')
