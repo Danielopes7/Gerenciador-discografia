@@ -1,4 +1,4 @@
-<form action="{{ route('track.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('track.store') }}" method="post" enctype="multipart/form-data" onsubmit="this.adicionar.value='Enviando...'; this.adicionar.disabled=true;">
     @csrf
     <div class="modal fade text-left" id="ModalShow" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">{{ __('Back') }}</button>
-                        <button type="submit" class="btn grey btn-outline-secondary float-right" >Adicionar</button>
+                        <button type="submit" name="adicionar" class="btn grey btn-outline-secondary float-right" >Adicionar</button>
                     </div>
                 </div>
             </div>
