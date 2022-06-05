@@ -94,6 +94,9 @@ class TrackController extends Controller
      */
     public function destroy(Track $track)
     {
-        //
+        
+        $album_id = $track->album_id;
+        $track->delete();
+        return redirect('/album'.'/'.$album_id);
     }
 }
