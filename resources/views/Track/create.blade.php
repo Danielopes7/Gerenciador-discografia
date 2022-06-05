@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">{{ __('Back') }}</button>
-                        <button type="submit" name="adicionar" class="btn grey btn-outline-secondary float-right" >Adicionar</button>
+                        <button type="submit" name="adicionar" class="btn grey btn-outline-success float-right" >Adicionar</button>
                     </div>
                 </div>
             </div>
