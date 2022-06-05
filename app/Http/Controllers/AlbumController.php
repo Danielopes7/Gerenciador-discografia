@@ -107,6 +107,8 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album->tracks()->delete();
+        $album->delete();
+        return redirect()->route('album.index');
     }
 }
