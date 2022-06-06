@@ -24,7 +24,7 @@ class TrackController extends Controller
      */
     public function create()
     {
-        return view('track.create');
+        return view('Track.create');
     }
 
     /**

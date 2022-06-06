@@ -29,7 +29,7 @@ class AlbumController extends Controller
         {
             $albuns = Album::all();
         }
-        return view('album.index', ['albuns' => $albuns]);
+        return view('Album.index', ['albuns' => $albuns]);
     }
 
     /**
@@ -39,7 +39,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('album.create');
+        return view('Album.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class AlbumController extends Controller
         $album = new Album();
         $album->create($request->all());
 
-        return redirect()->route('album.index');
+        return redirect()->route('Album.index');
     }
 
     /**
@@ -73,7 +73,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        return view('album.show', ['album' => $album]);
+        return view('Album.show', ['album' => $album]);
     }
 
     /**
@@ -109,6 +109,6 @@ class AlbumController extends Controller
     {
         $album->tracks()->delete();
         $album->delete();
-        return redirect()->route('album.index');
+        return redirect()->route('Album.index');
     }
 }
