@@ -71,7 +71,7 @@
     </div>
 </div>
 
-@include('track.create')
+@include('Track.create')
 @stop
 
 @section('css')
