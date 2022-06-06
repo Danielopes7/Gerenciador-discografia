@@ -54,7 +54,6 @@
                         <form id="form_{{$track->id}}" method="post" action="{{ route('track.destroy', ['track' => $track->id]) }}">
                         @csrf
                         @method('DELETE')  
-                        {{-- <button type="submit"> Excluir</button> --}}
                             <a href="#" onclick="document.getElementById('form_{{$track->id}}').submit()" class="text-dark">
                                 <i class="fas fa-trash"></i>
                             </a>            
@@ -82,46 +81,13 @@
 @section('js')
     <script>
         $(function() {
-        $('.criar').on('click', function(){
-            $('#ModalShow').modal("show");
-            //var id = $(this).data('id'); 
-            $.ajax({
-                type:'post',
-                url: "{{ route('track.store') }}",
-                data: {
-                    'id' : id,
-                    '_token': $('input[name=_token]').val()                  
-                },
-                dataType: 'json',
-                success:function(data){
-                    
-                }
-                }); 
+            $('.criar').on('click', function(){
+                $('#ModalShow').modal("show");
             });
         });
         $("#aceite").on("click", function() {
             $("#form-login").submit(); //Se for clicado no botão aceite é submetido o formulário
-            });
-        $("#form-login").validate({
-
-        rules: {
-            "email": {
-            required: true,
-            email: true
-            },
-            "senha": {
-            required: true
-            }
-        },
-        messages: {
-            "email": {
-            required: 'Campo e-mail é obrigatório',
-            email: 'E-mail inválido'
-            },
-            "senha": {
-            required: 'Campo senha é obrigatório'
-            }
-        }
         });
+        
     </script>
 @stop

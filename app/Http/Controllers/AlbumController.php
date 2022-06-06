@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class AlbumController extends Controller
 {
     /**
+     * @param  \Illuminate\Http\Request  $request
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

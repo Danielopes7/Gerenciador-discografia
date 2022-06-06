@@ -48,7 +48,8 @@ class TrackController extends Controller
         $request->validate($regras, $feedback);
         $track = new Track();
         $track->create($request->all());
-        return redirect('/album'.'/'.$request->album_id);
+        return redirect()->route('album.show',['album' => $request->album_id]);
+
     }
 
     /**
@@ -96,6 +97,6 @@ class TrackController extends Controller
         
         $album_id = $track->album_id;
         $track->delete();
-        return redirect('/album'.'/'.$album_id);
+        return redirect()->route('album.show',['album' => $album_id]);
     }
 }
