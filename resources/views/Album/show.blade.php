@@ -85,9 +85,6 @@
                 $('#ModalShow').modal("show");
             });
         });
-        $("#aceite").on("click", function() {
-            $("#form-login").submit(); //Se for clicado no botão aceite é submetido o formulário
-        });
         
     </script>
 @stop
