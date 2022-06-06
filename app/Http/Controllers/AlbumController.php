@@ -62,7 +62,7 @@ class AlbumController extends Controller
         $album = new Album();
         $album->create($request->all());
 
-        return redirect()->route('Album.index');
+        return redirect()->route('album.index');
     }
 
     /**
@@ -109,6 +109,6 @@ class AlbumController extends Controller
     {
         $album->tracks()->delete();
         $album->delete();
-        return redirect()->route('Album.index');
+        return redirect()->route('album.index');
     }
 }
