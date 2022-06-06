@@ -14,7 +14,7 @@
 
 > Computer | Mobile
 > --- | --- |
-<!-- > <a href="https://imgur.com/a/br6VcAN" target=”_blank”><img src="https://i.imgur.com/iHesRD5.png" /></a>  | <a href="https://imgur.com/a/br6VcAN" target="_blank"><img src="https://i.imgur.com/AiIrHzx.png" width="280px"/></a> | -->
+> <a href="https://imgur.com/a/6ItlbKA" target=”_blank”><img src="https://i.imgur.com/x2ol5i8.png" width="1920px" /></a>  | <a href="https://imgur.com/a/6ItlbKA" target="_blank"><img src="https://i.imgur.com/RUyyTsI.png" width="430px"/></a> |
 ## :rocket: 5 minutes quick start
 First you need to check if you have all the requirements installed on your machine:
 | Dependencies | Version |
@@ -41,4 +41,3 @@ php artisan serve
 <br>
 
 ## Heroku
-http://cartola4noobs.herokuapp.com/
