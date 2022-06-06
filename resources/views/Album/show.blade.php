@@ -55,7 +55,7 @@
                         @csrf
                         @method('DELETE')  
                         {{-- <button type="submit"> Excluir</button> --}}
-                            <a href="#" onclick="document.getElementById('form_{{$track->id}}').submit()">
+                            <a href="#" onclick="document.getElementById('form_{{$track->id}}').submit()" class="text-dark">
                                 <i class="fas fa-trash"></i>
                             </a>            
                         </form>
