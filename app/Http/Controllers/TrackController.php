@@ -37,7 +37,7 @@ class TrackController extends Controller
     {
         $regras = [
             'nome' => 'required|max:150',
-            'numero' => 'required|integer|max:3',
+            'numero' => 'required|integer',
             'duracao' => 'required',
         ];
 
