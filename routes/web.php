@@ -14,15 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    echo 'A rota acessada seria uma pagina inicial para aplicacão, <a href="'.route('album.index').'">clique aqui</a> para ir para página do gerenciador';
+})->name('album.index');
 
 // Auth::routes();
 
 Route::resource('album', 'AlbumController');
 Route::resource('track', 'TrackController');
-
-
 
 Route::fallback(function() {
     echo 'A rota acessada não existe. <a href="'.route('album.index').'">clique aqui</a> para ir para página inicial';
