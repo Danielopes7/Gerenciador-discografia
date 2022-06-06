@@ -20,10 +20,6 @@ class AlbumController extends Controller
         {
             $busca = $request->busca;
             $albuns = Album::where('nome', 'like', '%'.$busca.'%')->get();
-            // dd($albuns = Album::with(['tracks'])->where('nome', 'like', '%'.$busca.'%')->get());
-            // $albuns = Album::whereHas('tracks', function (Builder $query) {
-            //     $query->where('tracks', 'like', '%'.$busca.'%');
-            // })->get();
         }
         else
         {

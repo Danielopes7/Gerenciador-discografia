@@ -35,7 +35,6 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $regras = [
             'nome' => 'required|max:150',
             'numero' => 'required|integer|max:3',
