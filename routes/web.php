@@ -18,10 +18,15 @@ Route::get('/', function () {
 })->name('album.index');
 
 // Auth::routes();
+teste
 
+if (txt.search('[À-ú]') == -1) {
+    var nom_contato = removeAcento($(this).data('nom_contato').toLowerCase())
+} else {
+    var nom_contato = $(this).data('nom_contato').toLowerCase()
+}
 Route::resource('album', 'AlbumController');
 Route::resource('track', 'TrackController');
-
 Route::fallback(function() {
     echo 'A rota acessada nÃ£o existe. <a href="'.route('album.index').'">clique aqui</a> para ir para pÃ¡gina inicial';
 });
